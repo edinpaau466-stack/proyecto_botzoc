@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Botzoc System | Innovación Digital de Élite</title>
+    <style>
+        /* --- VARIABLES DE COLOR ULTRA PREMIUM --- */
+        :root {
+            --bg-dark: #030712;
+            --bg-card: rgba(17, 24, 39, 0.7);
+            --primary: #00f2fe;
+            --primary-glow: rgba(0, 242, 254, 0.4);
+            --accent: #4facfe;
+            --gold: #f59e0b;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+        }
+
+        /* --- CONFIGURACIÓN BASE --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-main);
+            min-height: 100vh;
+            overflow-x: hidden;
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(0, 242, 254, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(79, 172, 254, 0.05) 0%, transparent 40%);
+        }
+
+        /* --- BARRA DE NAVEGACIÓN --- */
+        header {
+            width: 100%;
+            background: rgba(3, 7, 18, 0.6);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .nav-brand {
+            font-size: 22px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 0%, var(--primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+            text-shadow: 0 0 15px var(--primary-glow);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 180px 20px 80px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .logo-wrapper {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 16px;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), 0 0 40px rgba(0, 242, 254, 0.1);
+            margin-bottom: 40px;
+            animation: floatAnimation 5s ease-in-out infinite;
+        }
+
+        .logo-img {
+            width: 180px;
+            display: block;
+            border-radius: 16px;
+        }
+
+        .tech-badge {
+            background: rgba(0, 242, 254, 0.1);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+            color: var(--primary);
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+        }
+
+        .hero-title {
+            font-size: 54px;
+            font-weight: 900;
+            margin-bottom: 25px;
+            letter-spacing: -1.5px;
+            background: linear-gradient(135deg, #ffffff 40%, #9ca3af 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-title span {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 19px;
+            color: var(--text-muted);
+            max-width: 800px;
+            margin-bottom: 45px;
+        }
+
+        /* --- BOTONES PREMIUM --- */
+        .btn-premium {
+            display: inline-flex;
+            align-items: center;
+            background: #ffffff;
+            color: #000000;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 16px 40px;
+            border-radius: 100px;
+            font-size: 15px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transition: all 0.4s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-premium:hover {
+            transform: translateY(-4px);
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            color: #ffffff;
+            box-shadow: 0 25px 45px rgba(0, 242, 254, 0.3);
+        }
+
+        .btn-card {
+            margin-top: 25px;
+            padding: 12px 25px;
+            font-size: 14px;
+            width: 100%;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--primary);
+            border: 1px solid rgba(0, 242, 254, 0.2);
+        }
+
+        /* --- SERVICIOS --- */
+        .services-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 60px;
+            letter-spacing: -1px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 35px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            border-radius: 28px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(0, 242, 254, 0.25);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+        }
+
+        .service-icon {
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .service-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        /* --- AGENDAR CITAS FORMULARIO --- */
+        .booking-section {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .booking-card {
+            background: linear-gradient(145deg, rgba(17, 24, 39, 0.8) 0%, rgba(3, 7, 18, 0.9) 100%);
+            border: 1px solid rgba(0, 242, 254, 0.15);
+            padding: 45px;
+            border-radius: 32px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: var(--text-main);
+            letter-spacing: 0.5px;
+        }
+
+        .form-control {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 15px 20px;
+            border-radius: 14px;
+            color: #ffffff;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 0 15px rgba(0, 242, 254, 0.1);
+        }
+
+        select.form-control option {
+            background: #0b1329;
+            color: #fff;
+        }
+
+        /* --- RESEÑAS / TESTIMONIOS --- */
+        .reviews-section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 20px;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background: rgba(255, 255, 255, 0.01);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            padding: 35px;
+            border-radius: 24px;
+            position: relative;
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: 18px;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            color: var(--text-muted);
+            font-style: italic;
+            font-size: 15px;
+            margin-bottom: 20px;
+        }
+
+        .review-user {
+            font-weight: 700;
+            font-size: 14px;
+            color: #ffffff;
+        }
+
+        .review-company {
+            font-size: 12px;
+            color: var(--primary);
+        }
+
+        /* --- SOBRE MÍ --- */
+        .profile-section {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 50px;
+        }
+
+        @media (min-width: 768px) { .profile-section { flex-direction: row; align-items: center; } }
+
+        .profile-image-container { flex: 1; display: flex; justify-content: center; position: relative; }
+        .profile-image-container::before {
+            content: ''; position: absolute; width: 80%; height: 80%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            border-radius: 40px; filter: blur(50px); opacity: 0.12;
+        }
+
+        .profile-img {
+            max-width: 100%; width: 380px; height: auto; border-radius: 35px;
+            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.5); border: 1px solid rgba(255, 255, 255, 0.08);
+            z-index: 1;
+        }
+
+        .profile-text { flex: 1; }
+        .profile-text h2 { font-size: 38px; font-weight: 800; margin-bottom: 10px; }
+        .profile-text .subtitle {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+            font-size: 15px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 25px;
+        }
+
+        .profile-text p { color: var(--text-muted); margin-bottom: 30px; font-size: 16px; }
+
+        .contact-info { background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); padding: 25px; border-radius: 20px; }
+        .contact-item { margin-bottom: 12px; font-size: 15px; display: flex; gap: 10px; }
+        .contact-item:last-child { margin-bottom: 0; }
+        .contact-item strong { color: var(--primary); }
+
+        /* --- FOOTER --- */
+        footer { text-align: center; padding: 50px 20px; border-top: 1px solid rgba(255, 255, 255, 0.05); color: #4b5563; font-size: 14px; background: #01030a; }
+
+        @keyframes floatAnimation {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-12px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <div class="nav-brand">BOTZOC SYSTEM</div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#citas">Agendar Cita</a></li>
+                <li><a href="#resenas">Reseñas</a></li>
+                <li><a href="#sobre-mi">Sobre Mí</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section class="hero-section" id="inicio">
+        <div class="logo-wrapper">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Botzoc System Logo" class="logo-img">
+        </div>
+        <div class="tech-badge">Sistemas Computacionales Avanzados</div>
+        <h1 class="hero-title">Impulsamos el Futuro de la <span>Tecnología</span></h1>
+        <p class="hero-subtitle">Soluciones de alto rendimiento en ciberseguridad estratégica, desarrollo de ecosistemas de software eficientes y portales web de élite corporativa.</p>
+        <a href="#citas" class="btn-premium">Agendar Consultoría Ahora</a>
+    </section>
+
+    <section class="services-section" id="servicios">
+        <h2 class="section-title">Soluciones Especializadas</h2>
+        <div class="services-grid">
+            
+            <div class="service-card">
+                <div>
+                    <div class="service-icon">🛡️</div>
+                    <h3>Ciberseguridad</h3>
+                    <p>Protección perimetral de datos, blindaje de servidores y mitigación inteligente de vulnerabilidades informáticas.</p>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=50238161244&text=Hola%20Botzoc%20System,%20me%20gustar%C3%ADa%20consultar%20y%20cotizar%20sobre%20el%20servicio%20de%20Ciberseguridad." target="_blank" class="btn-premium btn-card">Consultar Ciberseguridad</a>
+            </div>
+
+            <div class="service-card">
+                <div>
+                    <div class="service-icon">⚙️</div>
+                    <h3>Desarrollo de Software</h3>
+                    <p>Ingeniería de aplicaciones y sistemas personalizados. Automatización de flujos con código robusto.</p>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=50238161244&text=Hola%20Botzoc%20System,%20solicito%20informaci%C3%B3n%20para%20el%20Desarrollo%20de%20un%20Software%20o%20Aplicaci%C3%B3n%20a%20medida." target="_blank" class="btn-premium btn-card">Consultar Desarrollo</a>
+            </div>
+
+            <div class="service-card">
+                <div>
+                    <div class="service-icon">💎</div>
+                    <h3>Arquitectura Web</h3>
+                    <p>Interfaces web de gama alta corporativa. Plataformas rápidas, limpias y diseñadas para captar clientes.</p>
+                </div>
+                <a href="https://api.whatsapp.com/send?phone=50238161244&text=Hola%20Botzoc%20System,%20estoy%20interesado%20en%20el%20dise%C3%B1o%20y%20desarrollo%20de%20una%20P%C3%A1gina%20Web%20Profesional." target="_blank" class="btn-premium btn-card">Consultar Páginas Web</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="booking-section" id="citas">
+        <h2 class="section-title">Agendar una Cita de Negocios</h2>
+        <div class="booking-card">
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre Completo / Empresa</label>
+                    <input type="text" id="nombre" class="form-control" placeholder="Ej. Juan Pérez / Corporación Alfa" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="servicio">Seleccione el Servicio Requerido</label>
+                    <select id="servicio" class="form-control" required>
+                        <option value="" disabled selected>Escoja una opción...</option>
+                        <option value="Ciberseguridad Estratégica">🛡️ Ciberseguridad Estratégica</option>
+                        <option value="Desarrollo de Software / Apps">⚙️ Desarrollo de Software / Aplicaciones</option>
+                        <option value="Arquitectura y Páginas Web Corporativas">💎 Arquitectura y Páginas Web Corporativas</option>
+                    </select>
+                </div>
+
+                <div class="form-group" style="display: flex; gap: 20px;">
+                    <div style="flex: 1;">
+                        <label for="fecha">Fecha de la Cita</label>
+                        <input type="date" id="fecha" class="form-control" required>
+                    </div>
+                    <div style="flex: 1;">
+                        <label for="hora">Hora de la Cita</label>
+                        <input type="time" id="hora" class="form-control" required>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-premium" style="width: 100%; justify-content: center; margin-top: 10px;">Enviar Cita a WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="reviews-section" id="resenas">
+        <h2 class="section-title">Clientes Satisfechos</h2>
+        <div class="reviews-grid">
+            
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"La auditoría de ciberseguridad que implementó Botzoc System salvó nuestros servidores de vulnerabilidades críticas. Un trabajo sumamente pulcro y profesional."</p>
+                <div class="review-user">Ing. Carlos Mendoza</div>
+                <div class="review-company">Director de TI - Inversiones del Atlántico</div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Nuestra nueva plataforma web empresarial carga en milisegundos y el diseño oscuro estilo premium dejó fascinados a nuestros socios de negocios. Altamente recomendado."</p>
+                <div class="review-user">Licda. Sofía De León</div>
+                <div class="review-company">Gerente de Marketing - Nexus Logística</div>
+            </div>
+
+            <div class="review-card">
+                <div class="stars">⭐⭐⭐⭐⭐</div>
+                <p class="review-text">"Automatizaron todo nuestro sistema de inventario con un software a medida. Redujimos tiempos operativos a la mitad. Excelente consultoría técnica."</p>
+                <div class="review-user">Alejandro Gramajo</div>
+                <div class="review-company">Propietario - Distribuidora El Centro</div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="profile-section" id="sobre-mi">
+        <div class="profile-image-container">
+            <img src="{{ url_for('static', filename='foto.jpg') }}" alt="Edin Leonel Botzoc Paau" class="profile-img">
+        </div>
+        <div class="profile-text">
+            <h2>Edin Leonel Botzoc Paau</h2>
+            <div class="subtitle">Founder & Lead Tech Consultant</div>
+            <p>Especialista en desarrollo web escalable, arquitectura de datos y seguridad informática. En Botzoc System diseñamos sistemas digitales estables, de alto impacto y blindados ante cualquier riesgo.</p>
+            <div class="contact-info">
+                <div class="contact-item">📧 <strong>Email:</strong> edin@botzocyasociados.onmicrosoft.com</div>
+                <div class="contact-item">💬 <strong>Contacto:</strong> +502 3816-1244</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Botzoc System Tecnología. Diseñado con altos estándares informáticos empresariales. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            var nombre = document.getElementById('nombre').value;
+            var servicio = document.getElementById('servicio').value;
